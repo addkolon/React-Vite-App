@@ -6,7 +6,7 @@ import OrcaImage from './../../assets/images/orca.png'
 export default function Cards() {
   return (
     <>
-      <div className="card">
+      <div className="card no-br">
         <div className='card-image'>
           <img src={OrcaImage} alt="A picture of a pack of Killer Whales" />
         </div>
@@ -17,7 +17,9 @@ export default function Cards() {
           </p>
         </div>
         <div className="card-buttons">
-          <button className='primary-button'>Skapa konto</button>
+          <button className='btn btn-primary'>Skapa konto</button>
+          <button className='btn btn-text'>Logga in</button>
+          {/* <button className='btn btn-primary-outlined no-br'>Logga in</button> */}
         </div>
       </div>
     </>

@@ -1,5 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
+:root {
+  --primary: #20308d;
+  --secondary: #ccc;
+  --third: rgb(241, 198, 98);
+  
+  --white: white;
+  --light: #efefef;
+  --dark: #2c2c2c;
+  
+  --alert: rgb(185, 0, 0);
+  --warning: orange;
+  --success: rgb(36, 154, 36);
+  --neutral: rgb(65, 165, 222);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -47,4 +62,68 @@
 
 .read-the-docs {
   color: #888;
+}
+
+
+.btn {
+  /* GENERAL BUTTON STYLES */
+  padding: 16px 44px;
+  font-size: 12px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+
+
+  background-color: var(--light);
+  color: var(--dark);
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: var(--white);
+  outline: 1px solid var(--primary);
+}
+
+.btn-primary-outlined {
+  background-color: transparent;
+  color: var(--primary);
+  outline: 1px solid var(--primary);
+}
+
+.btn-alert {
+  background-color: var(--alert);
+  color: var(--white);
+  outline: 1px solid var(--alert);
+}
+
+.btn-warning {
+  background-color: var(--warning);
+  color: var(--white);
+}
+
+.btn-success {
+  background-color: var(--success);
+  color: var(--white);
+}
+
+.btn-neutral {
+  background-color: var(--neutral);
+  color: var(--white);
+}
+
+.btn-pill {
+  border-radius: 100px;
+}
+
+.btn-text {
+  outline: transparent;
+  background-color: transparent;
+}
+
+
+/* GLOBAL HELP CLASSES */
+
+.no-br {
+  border-radius: 0;
 }
