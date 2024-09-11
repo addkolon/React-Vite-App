@@ -13,10 +13,12 @@ export default function HeroBanner({ data }) {
   return (
     <>
     <div className='hero-banner' style={{ backgroundImage: `url(${bgImage})` }}>
+      <div className="hero-content">
       <h4>Hetast just nu</h4>
       <h2>{data[choosenMovie].title}</h2>
       <p>{data[choosenMovie].description}</p>
       <button className='btn btn-primary btn-pill'>Se förestälningarna</button>
+      </div>
 
     </div>
     
