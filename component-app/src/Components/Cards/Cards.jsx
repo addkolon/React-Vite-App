@@ -7,7 +7,7 @@ export default function Cards({ data }) {
   
   return (
     <>
-    <h3 className='movie-cards-heading'>Senaste filmerna</h3>
+    <h3 className='movie-cards-heading'><span>Senaste filmerna</span></h3>
     {/* Contiainer that holds all our movies */}
     <div className='movie-cards'>
       {data.map((movie) => (

@@ -64,7 +64,7 @@
 }
 
 .card .card-image img:hover {
-  transform: scale(1.2);
+  transform: scale(1.1);
 }
 
 .card .card-content {
@@ -93,24 +93,48 @@
   -webkit-box-orient: vertical;
 }
 
-@media screen and (min-width: 540) {
-  .card {
-    width: 340px;
-    /* height: 400px;
-     */
-    background-color: #f9f9f9;
-    border-radius: 1rem;
-    box-shadow: 0 4px 4px rgba(0, 0, 0, .12);
-    padding: 20px;
-    text-align: left;
-    scroll-snap-align: start;
+@media screen and (min-width: 540px) {
+  .movie-cards {
+    grid-auto-columns: 19%;
+    padding: 0;
+    padding-bottom: 3rem;
   }
-  
+
   .card .card-image {
+    height: 355px;
+  }
+
+  .card .card-content {
+    padding: 0;
+  }
+
+  .movie-cards-heading {
+    padding-left: 0;
+    font-size: 24px;
+    font-weight: 300;
+    position: relative;
+    z-index: 1;
+  }
+
+  .movie-cards-heading span {
+    display: inline-block;
+    padding: 1rem;
+    padding-left: 0;
+    background-color: var(--secondary);
+    position: relative;
+    z-index: 1;
+
+  }
+
+  .movie-cards-heading::before {
+    content: "";
+    position: absolute;
+    top: 36px;
+    left: 0;
+    height: 1px;
     width: 100%;
-    height: 360px;
-    margin-bottom: 20px;
-    overflow: hidden;
+    background-color: var(--primary);
+    z-index: 0;
   }
 }
 
