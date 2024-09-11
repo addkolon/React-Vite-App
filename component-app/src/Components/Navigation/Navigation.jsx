@@ -1,19 +1,20 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 import "./Navigation.css";
+import logoImage from "./../../assets/images/film-outline.svg"
 
 export default function Navigation() {
   const [menuActive, setMenuActive] = useState(false);
 
   function triggerMenu() {
-    setMenuActive(!menuActive); // Toggle the state between true and false
+    setMenuActive(!menuActive);
   }
-  
+
   return (
     <>
       <div className="main-nav">
         <div className="logo">
-          <h1>Logotype</h1>
+          <img src={logoImage} alt="The websites logotype"  />
         </div>
         <nav className="nav-links">
           <div className="mobile-menu-trigger" onClick={triggerMenu}>

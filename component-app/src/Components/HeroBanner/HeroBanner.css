@@ -1,0 +1,15 @@
+.hero-banner {
+  height: 30dvh;
+  width: 100%;
+  background-position: center center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 1rem;
+}
+
+.hero-banner h2 {
+  font-size: 5vw;
+}

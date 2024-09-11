@@ -1,7 +1,7 @@
 /* MOBILE CODE + EVERYTHING */
 
 .main-nav {
-  position: fixed;
+  position: relative;
   top: 0;
   left: 0;
   display: flex;
@@ -9,7 +9,7 @@
   /* gap: 4rem; */
   width: 100%;
   padding: 1rem;
-  background-color: var(--light);
+  background-color: var(--secondary);
   /* border: 1px solid green; */
   align-items: center;
 }
@@ -17,11 +17,12 @@
 .main-nav .logo {
   font-size: 0.75rem;
   font-weight: bold;
+  color: var(--primary);
   /* border: 1px solid yellow; */
 }
 
 .main-nav .nav-links {
-  border: 1px solid turquoise;
+  /* border: 1px solid turquoise; */
 }
 
 .main-nav .nav-links ul {

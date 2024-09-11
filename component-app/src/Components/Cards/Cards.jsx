@@ -1,27 +1,32 @@
-import React from 'react'
 import './Cards.css'
 
-import OrcaImage from './../../assets/images/orca.png'
-
-export default function Cards() {
+export default function Cards({ data }) {
+  if (!data || data.length === 0) {
+    return <p>No movies available at the moment.</p>;  // Handle empty data case
+  }
+  
   return (
     <>
-      <div className="card no-br">
-        <div className='card-image'>
-          <img src={OrcaImage} alt="A picture of a pack of Killer Whales" />
+    <h3 className='movie-cards-heading'>Senaste filmerna</h3>
+    {/* Contiainer that holds all our movies */}
+    <div className='movie-cards'>
+      {data.map((movie) => (
+        <div key={movie._id}className="card no-br">
+          <div className='card-image'>
+            <img src={movie.posterUrl} alt={movie.description} />
+          </div>
+          <div className="card-content">
+            <h3 className='card-title'>{movie.title}</h3>
+            {/* <p className="card-text">
+              {movie.description}
+            </p> */}
+          </div>
+          {/* <div className="card-buttons">
+            <button className='btn btn-primary'>Gå till filmen</button>
+          </div> */}
         </div>
-        <div className="card-content">
-          <h3 className='card-title'>Se vilda Späckhuggare</h3>
-          <p className="card-text">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae sunt pariatur quae nisi, repellat quia similique dolorem rem debitis.
-          </p>
-        </div>
-        <div className="card-buttons">
-          <button className='btn btn-primary'>Skapa konto</button>
-          <button className='btn btn-text'>Logga in</button>
-          {/* <button className='btn btn-primary-outlined no-br'>Logga in</button> */}
-        </div>
-      </div>
+      ))}
+    </div>
     </>
   )
 }
