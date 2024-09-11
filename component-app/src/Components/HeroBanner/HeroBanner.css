@@ -14,10 +14,17 @@
   text-align: left;
   background: linear-gradient(to top, black, rgba(0, 0, 0, 0));
   padding: 1rem;
+  padding-bottom: 1.5rem;
+}
+
+.hero-banner h4 {
+  font-weight: 300;
+  font-size: 9px;
+  text-transform: uppercase;
 }
 
 .hero-banner h2 {
-  font-size: 5vw;
+  font-size: 7vw;
 }
 
 .hero-banner p {
