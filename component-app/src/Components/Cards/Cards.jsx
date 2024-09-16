@@ -1,3 +1,6 @@
+import { useState, useEffect } from "react";
+import { Link, useLocation } from 'react-router-dom';
+
 import "./Cards.css";
 
 export default function Cards({ data }) {
@@ -14,7 +17,7 @@ export default function Cards({ data }) {
         {/* Contiainer that holds all our movies */}
         <div className="movie-cards">
           {data.map((movie) => (
-            <div key={movie._id} className="card no-br">
+            <Link to={`/movies/${movie._id}`} key={movie._id} className="card no-br">
               <div className="card-image">
                 <img src={movie.posterUrl} alt={movie.description} />
               </div>
@@ -27,7 +30,7 @@ export default function Cards({ data }) {
               {/* <div className="card-buttons">
             <button className='btn btn-primary'>Gå till filmen</button>
           </div> */}
-            </div>
+            </Link>
           ))}
         </div>
       </div>

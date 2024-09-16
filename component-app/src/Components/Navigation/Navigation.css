@@ -119,7 +119,7 @@
     display: none;
   }
 
-  .close-mobile-menu {
+  .main-nav .nav-links ul li.close-mobile-menu {
     display: none;
   }
 }

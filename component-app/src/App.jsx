@@ -1,10 +1,14 @@
 import { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import './App.css'
-import Cards from './Components/Cards/Cards'
-import HeroBanner from './Components/HeroBanner/HeroBanner'
-import Navigation from './Components/Navigation/Navigation'
+import "./App.css";
+import Navigation from "./Components/Navigation/Navigation";
+import MovieDetails from "./Components/MovieDetails/MovieDetails";
 import Footer from "./Components/Footer/Footer";
+
+// PAGES
+import Home from "./Pages/Home";
+import About from "./Pages/About";
 
 function App() {
   const [data, setData] = useState([]);
@@ -21,30 +25,35 @@ function App() {
         return response.json();
       })
       .then((data) => {
-        setData(data);  // Assuming the actual movie data is in data
-        setLoading(false);   // End loading state
+        setData(data); // Assuming the actual movie data is in data
+        setLoading(false); // End loading state
       })
       .catch((error) => {
-        setError(error);     // Set error if fetch fails
-        setLoading(false);   // End loading state
+        setError(error); // Set error if fetch fails
+        setLoading(false); // End loading state
       });
   }, []);
 
-  if (loading) return <p>Loading...</p>;   // Show loading indicator
-  if (error) return <p>Error: {error.message}</p>;   // Show error message
+  if (loading) return <p>Loading...</p>; // Show loading indicator
+  if (error) return <p>Error: {error.message}</p>; // Show error message
 
-  console.log(data);  // Check the structure of the fetched data
+  console.log(data); // Check the structure of the fetched data
 
   return (
     <>
-      <Navigation />
-      <div className="main-content">
-        <HeroBanner data={data} />
-        <Cards data={ data } />
-      </div>
-      <Footer />
+      <Router>
+        <Navigation />
+        <div className="main-content">
+          <Routes>
+            <Route path="/" element={<Home data={data} />} /> {/* Pass data to Home */}
+            <Route path="/about" element={<About />} />
+            <Route path="/movies/:id" element={<MovieDetails data={data} />} /> {/* Pass data to MovieDetails */}
+          </Routes>
+        </div>
+        <Footer />
+      </Router>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

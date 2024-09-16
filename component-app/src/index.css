@@ -34,6 +34,38 @@ h1 {
   line-height: 1.1;
 }
 
+.top-image {
+  height: 50vh;
+  overflow: hidden;
+  object-fit: cover;
+  display: flex;  
+  justify-content: center;
+  align-items: center;
+  
+  img {
+    width: 100%;
+    object-fit: cover;
+    object-position: center center;
+    
+
+  }
+}
+
+img {
+  max-width: 100%;
+}
+
+.container {
+  margin: 0 1rem;
+  max-width: 1280px;
+}
+
+@media screen and (min-width: 540px) {
+  .container {
+    margin: 0 auto;
+  }
+}
+
 /* button {
   border-radius: 8px;
   border: 1px solid transparent;
