@@ -1,7 +1,8 @@
 import { useState } from "react";
 
 import "./Navigation.css";
-import logoImage from "./../../assets/images/film-outline.svg"
+import { CloseOutline } from 'react-ionicons'
+import logoImage from "./../../assets/images/film-outline.svg";
 
 export default function Navigation() {
   const [menuActive, setMenuActive] = useState(false);
@@ -14,7 +15,7 @@ export default function Navigation() {
     <>
       <div className="main-nav">
         <div className="logo">
-          <img src={logoImage} alt="The websites logotype"  />
+          <img src={logoImage} alt="The websites logotype" />
         </div>
         <nav className="nav-links">
           <div className="mobile-menu-trigger" onClick={triggerMenu}>
@@ -24,16 +25,16 @@ export default function Navigation() {
           </div>
           <ul id="nav-list" className={menuActive ? "active" : ""}>
             <li>
-              <a href="">Link</a>
+              <a href="">Movies</a>
             </li>
             <li>
-              <a href="">Link</a>
+              <a href="">The world of Cinema</a>
             </li>
             <li>
-              <a href="">Link</a>
+              <a href="">About us</a>
             </li>
-            <li>
-              <a href="">Link</a>
+            <li className="close-mobile-menu">
+              <a onClick={triggerMenu}><CloseOutline color={'#B8A64B'}/> </a>
             </li>
           </ul>
         </nav>

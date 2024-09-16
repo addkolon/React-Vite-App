@@ -4,6 +4,7 @@ import './App.css'
 import Cards from './Components/Cards/Cards'
 import HeroBanner from './Components/HeroBanner/HeroBanner'
 import Navigation from './Components/Navigation/Navigation'
+import Footer from "./Components/Footer/Footer";
 
 function App() {
   const [data, setData] = useState([]);
@@ -41,6 +42,7 @@ function App() {
         <HeroBanner data={data} />
         <Cards data={ data } />
       </div>
+      <Footer />
     </>
   )
 }
