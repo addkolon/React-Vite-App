@@ -25,7 +25,7 @@
 #root {
   max-width: 100%;
   margin: 0 auto;
-  text-align: center;
+  /* text-align: center; */
 }
 
 /* .logo {
@@ -88,6 +88,11 @@
   background-color: var(--primary);
   color: var(--white);
   outline: 1px solid var(--primary);
+}
+.btn-secondary {
+  background-color: var(--secondary);
+  color: var(--primary);
+  outline: 1px solid var(--secondary);
 }
 
 .btn-primary-outlined {

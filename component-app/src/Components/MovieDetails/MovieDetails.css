@@ -1,0 +1,104 @@
+.movie-details-hero-section {
+  height: 30dvh;
+  width: 100%;
+  background-position: center center;
+  background-size: cover;
+  display: flex;
+  align-items: self-start;
+  justify-content: end;
+  flex-direction: column;
+  
+}
+
+.hero-content {
+  text-align: left;
+  background: linear-gradient(to top, black, rgba(0, 0, 0, 0));
+  padding: 1.5rem;
+}
+
+.hero-content h2 {
+  font-size: 7vw;
+  line-height: 1.2;
+}
+
+.hero-content p {
+  font-size: .75rem;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.movie-details-content {
+  display: flex;
+  justify-content: space-between;
+  margin: 3rem 0;
+
+  h2 {
+    font-size: 2.5vw;
+  }
+
+  .left-col {
+    width: 25%;
+    
+    .movie-meta {
+      font-size: 12px;
+      margin-top: 1.5rem;
+
+      span {
+        font-weight: bold;
+      }
+    }
+  }
+
+  
+
+  .right-col {
+    width: 70%;
+
+    .show-details {
+      padding: .75rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: var(--primary);
+      color: var(--secondary);
+      width: 100%;
+      margin-bottom: 1rem;
+      font-size: 16px;
+      border-radius: 4px;
+
+      & > div {
+        width: 100%;
+      }
+
+      .show-booking {
+        button {
+          width: 100%;
+          padding: .8rem 1rem;
+        }
+      }
+    }
+  }
+}
+
+
+
+@media screen and (min-width: 540px) {
+  .movie-details-hero-section {
+    height: 50dvh;
+
+  }
+
+  .hero-content {
+    min-width: 100%;
+    padding-bottom: 3rem;
+    padding-left: 2rem;
+  }
+
+  .hero-content p {
+    width: 65vw;
+  }
+
+  .hero-content h2 {
+    font-size: 5vw;
+  }
+}

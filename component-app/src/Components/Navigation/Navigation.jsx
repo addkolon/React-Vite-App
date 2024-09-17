@@ -32,7 +32,7 @@ export default function Navigation() {
           </div>
           <ul id="nav-list" className={menuActive ? "active" : ""}>
             <li>
-              <a href="">Movies</a>
+            <Link to="/">Movies</Link>
             </li>
             <li>
               <a href="">The world of Cinema</a>
