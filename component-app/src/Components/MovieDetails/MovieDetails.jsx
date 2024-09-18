@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import Modal from "./../Modal/Modal"; // Import Modal
 
 import "./MovieDetails.css";
 
@@ -13,9 +14,11 @@ export default function MovieDetails({ data }) {
     return <p>Movie not found</p>;
   }
 
-  const [shows, setData] = useState([]);
+  const [shows, setShows] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [modalShow, setModalShow] = useState(false); // State for showing modal
+  const [selectedShow, setSelectedShow] = useState(null); // State for selected show data (seats)
 
   useEffect(() => {
     // Fetch data from the API when the component mounts
@@ -27,19 +30,23 @@ export default function MovieDetails({ data }) {
         return response.json();
       })
       .then((shows) => {
-        setData(shows); // Assuming the actual movie data is in data
+        setShows(shows); // Assuming the actual movie data is in data
         setLoading(false); // End loading state
       })
       .catch((error) => {
         setError(error); // Set error if fetch fails
         setLoading(false); // End loading state
       });
-  }, []);
+  }, [id]);
 
   if (loading) return <p>Loading...</p>; // Show loading indicator
   if (error) return <p>Error: {error.message}</p>; // Show error message
 
-  console.log(shows); // Check the structure of the fetched data
+  // Trigger modal with seat information
+  const handleShowSeats = (show) => {
+    setSelectedShow(show); // Store the selected show data (including seats)
+    setModalShow(true); // Show the modal
+  };
 
   const releaseYear = new Date(movie.releaseDate).getFullYear();
 
@@ -53,7 +60,6 @@ export default function MovieDetails({ data }) {
           <div className="hero-content">
             <div className="container">
               <h2>{movie.title}</h2>
-              
             </div>
           </div>
         </div>
@@ -61,11 +67,8 @@ export default function MovieDetails({ data }) {
           <div className="movie-details-content">
             <div className="left-col">
               <h2>About</h2>
-              {/* <img src={movie.posterUrl} /> */}
-              {/* <h4>Description</h4> */}
               <p>{movie.description}</p>
               <div className="movie-meta">
-                
                 <p>
                   <span>Director:</span> {movie.director}
                 </p>
@@ -85,15 +88,12 @@ export default function MovieDetails({ data }) {
               {shows.map((show) => (
                 <div key={show._id} className="show-details">
                   <div className="show-date">
-                    {/* Date */}
                     {new Date(show.startTime).toLocaleDateString("en-GB", {
                       day: "numeric",
                       month: "short",
-                      year: "numeric",
                     })}
                   </div>
                   <div className="show-time">
-                    {/* Time */}
                     {new Date(show.startTime).toLocaleTimeString("en-GB", {
                       hour: "2-digit",
                       minute: "2-digit",
@@ -101,16 +101,22 @@ export default function MovieDetails({ data }) {
                   </div>
                   <div className="show-room">Saloon {show.roomNumber}</div>
                   <div className="show-seats">
-                  {show.availableSeats.length > 0 ? (
-                    <span>
-                      {show.availableSeats.length} / {show.availableSeats.length + show.bookedSeats.length}
-                    </span>
+                    {show.availableSeats.length > 0 ? (
+                      <span>
+                        {show.availableSeats.length} /{" "}
+                        {show.availableSeats.length + show.bookedSeats.length}
+                      </span>
                     ) : (
                       <span>No available seats</span>
                     )}
                   </div>
                   <div className="show-booking">
-                    <button className="btn btn-secondary">Boka biljett</button>
+                    <button
+                      className="btn btn-secondary"
+                      onClick={() => handleShowSeats(show)}
+                    >
+                      Boka biljetter
+                    </button>
                   </div>
                 </div>
               ))}
@@ -118,6 +124,16 @@ export default function MovieDetails({ data }) {
           </div>
         </div>
       </div>
+
+      {/* Modal for showing available and booked seats */}
+      {selectedShow && (
+        <Modal
+          show={modalShow}
+          onClose={() => setModalShow(false)}
+          availableSeats={selectedShow.availableSeats}
+          bookedSeats={selectedShow.bookedSeats}
+        />
+      )}
     </>
   );
 }
