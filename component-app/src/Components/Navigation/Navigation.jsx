@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation } from "react-router-dom";
 
 import "./Navigation.css";
-import { CloseOutline } from 'react-ionicons'
+import { CloseOutline } from "react-ionicons";
 import logoImage from "./../../assets/images/film-outline.svg";
 
 export default function Navigation() {
@@ -15,14 +15,16 @@ export default function Navigation() {
 
   // Close the menu when the route changes
   useEffect(() => {
-    setMenuActive(false);  // Close the menu when the route changes
-  }, [location]);  // Effect runs whenever the location changes
+    setMenuActive(false); // Close the menu when the route changes
+  }, [location]); // Effect runs whenever the location changes
 
   return (
     <>
       <div className="main-nav">
         <div className="logo">
-        <Link to="/"><img src={logoImage} alt="The websites logotype" /></Link>
+          <Link to="/">
+            <img src={logoImage} alt="The websites logotype" />
+          </Link>
         </div>
         <nav className="nav-links">
           <div className="mobile-menu-trigger" onClick={triggerMenu}>
@@ -32,16 +34,18 @@ export default function Navigation() {
           </div>
           <ul id="nav-list" className={menuActive ? "active" : ""}>
             <li>
-            <Link to="/">Movies</Link>
+              <Link to="/">Movies</Link>
             </li>
             <li>
-              <a href="">The world of Cinema</a>
+              <Link to="/the-world-of-cinema">The world of Cinema</Link>
             </li>
             <li>
               <Link to="/about">About us</Link>
             </li>
             <li className="close-mobile-menu">
-              <a onClick={triggerMenu}><CloseOutline color={'#B8A64B'}/> </a>
+              <a onClick={triggerMenu}>
+                <CloseOutline color={"#B8A64B"} />{" "}
+              </a>
             </li>
           </ul>
         </nav>

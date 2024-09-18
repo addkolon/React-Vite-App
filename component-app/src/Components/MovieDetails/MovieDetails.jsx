@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { CalendarOutline, TimeOutline, PersonCircleOutline, PricetagOutline, TicketOutline } from "react-ionicons";
 import Modal from "./../Modal/Modal"; // Import Modal
 
 import "./MovieDetails.css";
@@ -69,18 +70,18 @@ export default function MovieDetails({ data }) {
               <h2>About</h2>
               <p>{movie.description}</p>
               <div className="movie-meta">
-                <p>
-                  <span>Director:</span> {movie.director}
-                </p>
-                <p>
-                  <span>Genre:</span> {movie.genre}
-                </p>
-                <p>
-                  <span>Year of release:</span> {releaseYear}
-                </p>
-                <p>
-                  <span>Duration:</span> {movie.duration} min
-                </p>
+                <div>
+                  <PersonCircleOutline color={'#fff'} className="icon-list" /><span>Director: </span> {movie.director}
+                </div>
+                <div>
+                  <PricetagOutline color={'#fff'} className="icon-list" /><span>Genre: </span> {movie.genre}
+                </div>
+                <div>
+                  <CalendarOutline color={'#fff'} className="icon-list" /><span>Release: </span> {releaseYear}
+                </div>
+                <div>
+                  <TimeOutline color={'#fff'} className="icon-list" /><span>Duration: </span> {movie.duration} min
+                </div>
               </div>
             </div>
             <div className="right-col">
@@ -115,7 +116,7 @@ export default function MovieDetails({ data }) {
                       className="btn btn-secondary"
                       onClick={() => handleShowSeats(show)}
                     >
-                      Boka biljetter
+                      <TicketOutline /> Boka biljetter
                     </button>
                   </div>
                 </div>

@@ -9,6 +9,7 @@ import Footer from "./Components/Footer/Footer";
 // PAGES
 import Home from "./Pages/Home";
 import About from "./Pages/About";
+import TheWorldofCinema from "./Pages/TheWorldofCinema";
 
 function App() {
   const [data, setData] = useState([]);
@@ -47,6 +48,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home data={data} />} /> {/* Pass data to Home */}
             <Route path="/about" element={<About />} />
+            <Route path="/the-world-of-cinema" element={<TheWorldofCinema />} />
             <Route path="/movies/:id" element={<MovieDetails data={data} />} /> {/* Pass data to MovieDetails */}
           </Routes>
         </div>

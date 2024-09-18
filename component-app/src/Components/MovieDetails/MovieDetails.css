@@ -47,9 +47,24 @@
     .movie-meta {
       font-size: 12px;
       margin-top: 1.5rem;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+
+      & > div {
+        height: 40px;
+        display: flex;
+        align-items: center;
+      }
 
       span {
         font-weight: bold;
+        display: inline-block;
+        margin-right: 4px;
+        
+        &.icon-list {
+          margin-right: 8px;
+        }
       }
     }
   }
